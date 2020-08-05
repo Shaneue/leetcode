@@ -24,90 +24,51 @@ public class MedianOfTwoSortedArrays {
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         int total = nums1.length + nums2.length;
         int target = total / 2;
-        boolean flag = total % 2 == 1;
         int count = 0;
-        double re = 0.0;
-        if (flag) {
-            for (int i = 0, j = 0; i < nums1.length || j < nums2.length; ) {
-                if (i == nums1.length) {
-                    count++;
-                    if (count == target + 1) {
-                        re = 0.0 + nums2[j];
-                        break;
-                    }
-                    j++;
-                } else if (j == nums2.length) {
-                    count++;
-                    if (count == target + 1) {
-                        re = 0.0 + nums1[i];
-                        break;
-                    }
-                    i++;
-                } else if (nums1[i] > nums2[j]) {
-                    count++;
-                    if (count == target + 1) {
-                        re = 0.0 + nums2[j];
-                        break;
-                    }
-                    j++;
-                } else {
-                    count++;
-                    if (count == target + 1) {
-                        re = 0.0 + nums1[i];
-                        break;
-                    }
-                    i++;
+        double ret1 = 0.0, ret2 = 0.0;
+        for (int i = 0, j = 0; i < nums1.length || j < nums2.length; ) {
+            if (i == nums1.length) {
+                if (++count == target + 1) {
+                    ret1 = nums2[j];
+                    break;
                 }
-            }
-        } else {
-            for (int i = 0, j = 0; i < nums1.length || j < nums2.length; ) {
-                if (i == nums1.length) {
-                    count++;
-                    if (count == target) {
-                        re = 0.0 + nums2[j];
-                    }
-                    if (count == target + 1) {
-                        re = re + nums2[j];
-                        re /= 2;
-                        break;
-                    }
-                    j++;
-                } else if (j == nums2.length) {
-                    count++;
-                    if (count == target) {
-                        re = 0.0 + nums1[i];
-                    }
-                    if (count == target + 1) {
-                        re = re + nums1[i];
-                        re /= 2;
-                        break;
-                    }
-                    i++;
-                } else if (nums1[i] > nums2[j]) {
-                    count++;
-                    if (count == target) {
-                        re = 0.0 + nums2[j];
-                    }
-                    if (count == target + 1) {
-                        re = re + nums2[j];
-                        re /= 2;
-                        break;
-                    }
-                    j++;
-                } else {
-                    count++;
-                    if (count == target) {
-                        re = 0.0 + nums1[i];
-                    }
-                    if (count == target + 1) {
-                        re = re + nums1[i];
-                        re /= 2;
-                        break;
-                    }
-                    i++;
+                if (count == target) {
+                    ret2 = nums2[j];
                 }
+                j++;
+            } else if (j == nums2.length) {
+                if (++count == target + 1) {
+                    ret1 = nums1[i];
+                    break;
+                }
+                if (count == target) {
+                    ret2 = nums1[i];
+                }
+                i++;
+            } else if (nums1[i] > nums2[j]) {
+                if (++count == target + 1) {
+                    ret1 = nums2[j];
+                    break;
+                }
+                if (count == target) {
+                    ret2 = nums2[j];
+                }
+                j++;
+            } else {
+                if (++count == target + 1) {
+                    ret1 = nums1[i];
+                    break;
+                }
+                if (count == target) {
+                    ret2 = nums1[i];
+                }
+                i++;
             }
         }
-        return re;
+        return total % 2 == 1 ? ret1 : (ret1 + ret2) / 2;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new MedianOfTwoSortedArrays().findMedianSortedArrays(new int[]{1, 3}, new int[]{2}));
     }
 }

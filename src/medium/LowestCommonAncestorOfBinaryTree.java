@@ -1,8 +1,5 @@
 package medium;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
  * <p>
@@ -24,7 +21,7 @@ import java.util.List;
  * Output: 5
  * Explanation: The LCA of nodes 5 and 4 is 5, since a node can be a descendant of itself according to the LCA definition.
  * <p>
- * <p>
+ * ß
  * Note:
  * <p>
  * All of the nodes' values will be unique.

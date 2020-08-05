@@ -33,7 +33,7 @@ import java.util.Map;
  * Output: 9
  * Explanation: Maximum amount of money the thief can rob = 4 + 5 = 9.
  */
-public class HouseRobberThree {
+public class HouseRobber3 {
     Map<TreeNode, Integer> cache = new HashMap<>();
 
     public int rob(TreeNode root) {

@@ -15,7 +15,7 @@ package medium;
  * 1 is typically treated as an ugly number.
  * n does not exceed 1690.
  */
-public class UglyNumberTwo {
+public class UglyNumber2 {
     public int nthUglyNumber(int n) {
         Node list = new Node(1);
         Node n1, n2, n3;

@@ -12,6 +12,8 @@ package medium;
  * <p>
  * Input: "cbbd"
  * Output: "bb"
+ *
+ * 注意连续两个字符相同可以选择跳过，减少复杂度
  */
 public class LongestPalindromicSubstring {
     public String longestPalindrome(String s) {
