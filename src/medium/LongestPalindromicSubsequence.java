@@ -27,22 +27,22 @@ package medium;
  * 1 <= s.length <= 1000
  * s consists only of lowercase English letters.
  * <p>
- * dp只要一维数据即可
+ * dp用二维数组比较好理解，改为一维数据优化空间复杂度
  */
 public class LongestPalindromicSubsequence {
     public int longestPalindromeSubseq(String s) {
         int l = s.length();
         int[] dp = new int[l];
         int ret = 0;
-        for (int i = l - 1; i >= 0; i--) {
+        for (int i = 0; i < l; i++) {
             dp[i] = 1;
-            int preMax = 0;
-            for (int j = i + 1; j < l; j++) {
-                int tmp = dp[j];
+            int pre = 0;
+            for (int j = i - 1; j >= 0; j--) {
+                int t = dp[j];
                 if (s.charAt(i) == s.charAt(j)) {
-                    dp[j] = preMax + 2;
+                    dp[j] = pre + 2;
                 }
-                preMax = Math.max(tmp, preMax);
+                pre = Math.max(t, pre);
             }
         }
 
@@ -53,6 +53,6 @@ public class LongestPalindromicSubsequence {
     }
 
     public static void main(String[] args) {
-        System.out.println(new LongestPalindromicSubsequence().longestPalindromeSubseq("bbbab"));
+        System.out.println(new LongestPalindromicSubsequence().longestPalindromeSubseq("bbbabbbbb"));
     }
 }

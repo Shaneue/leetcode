@@ -22,16 +22,16 @@ public class IntegerBreak {
         if (n == 3)
             return 2;
 
-        int re = n / 3;
+        int ret = n / 3;
         n %= 3;
         if (n == 1) {
-            re = re - 1;
+            ret = ret - 1;
             n = n + 3;
         }
-        re = (int) Math.pow(3, re);
+        ret = (int) Math.pow(3, ret);
         if (n != 0) {
-            re *= n;
+            ret *= n;
         }
-        return re;
+        return ret;
     }
 }

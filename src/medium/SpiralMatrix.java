@@ -1,66 +1,64 @@
 package medium;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
- * Given a positive integer n, generate a square matrix filled with elements from 1 to n2 in spiral order.
+ * Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.
  * <p>
- * Example:
+ * Example 1:
  * <p>
- * Input: 3
- * Output:
+ * Input:
  * [
  * [ 1, 2, 3 ],
- * [ 8, 9, 4 ],
- * [ 7, 6, 5 ]
+ * [ 4, 5, 6 ],
+ * [ 7, 8, 9 ]
  * ]
+ * Output: [1,2,3,6,9,8,7,4,5]
+ * Example 2:
+ * <p>
+ * Input:
+ * [
+ * [1, 2, 3, 4],
+ * [5, 6, 7, 8],
+ * [9,10,11,12]
+ * ]
+ * Output: [1,2,3,4,8,12,11,10,9,5,6,7]
  */
 public class SpiralMatrix {
-    public int[][] generateMatrix(int n) {
-        int[][] matrix = new int[n][n];
-        int current = 1;
-        int size = n * n;
+    public List<Integer> spiralOrder(int[][] matrix) {
+        if (matrix.length == 0) return new ArrayList<>();
+        int m = matrix.length;
+        int n = matrix[0].length;
+        int c = n * m;
+        List<Integer> ret = new ArrayList<>();
         int x = -1, y = -1;
-        while (current <= size) {
-            for (x += 1, y += 1; y < n && matrix[x][y] == 0; y++, current++) {
-                matrix[x][y] = current;
+        int xLimit = -1, yLimit = -1;
+        while (c > 0) {
+            for (x += 1, y += 1; x < n && c > 0; x++, c--) {
+                ret.add(matrix[y][x]);
             }
-            for (x += 1, y -= 1; x < n && matrix[x][y] == 0; x++, current++) {
-                matrix[x][y] = current;
+            yLimit++;
+            for (y += 1, x -= 1; y < m && c > 0; y++, c--) {
+                ret.add(matrix[y][x]);
             }
-            for (x -= 1, y -= 1; y > -1 && matrix[x][y] == 0; y--, current++) {
-                matrix[x][y] = current;
+            n--;
+            for (x -= 1, y -= 1; x > xLimit && c > 0; x--, c--) {
+                ret.add(matrix[y][x]);
             }
-            for (x -= 1, y += 1; x > -1 && matrix[x][y] == 0; x--, current++) {
-                matrix[x][y] = current;
+            m--;
+            for (x += 1, y -= 1; y > yLimit && c > 0; y--, c--) {
+                ret.add(matrix[y][x]);
             }
+            xLimit++;
         }
-        return matrix;
+        return ret;
     }
 
     public static void main(String[] args) {
-        int[][] test1 = new int[1][1];
-        test1[0][0] = 1;
-        int[][] test2 = new int[4][4];
-        int[] a1 = {1, 2, 3, 4};
-        int[] a2 = {12, 13, 14, 5};
-        int[] a3 = {11, 16, 15, 6};
-        int[] a4 = {10, 9, 8, 7};
-        test2[0] = a1;
-        test2[1] = a2;
-        test2[2] = a3;
-        test2[3] = a4;
-        //test1
-        int[][] matrix1 = new SpiralMatrix().generateMatrix(1);
-        for (int i = 0; i < matrix1.length; i++) {
-            for (int j = 0; j < matrix1[i].length; j++) {
-                if (matrix1[i][j] != test1[i][j]) assert false;
-            }
-        }
-        //test2
-        int[][] matrix2 = new SpiralMatrix().generateMatrix(1);
-        for (int i = 0; i < matrix2.length; i++) {
-            for (int j = 0; j < matrix2[i].length; j++) {
-                if (matrix2[i][j] != test2[i][j]) assert false;
-            }
-        }
+        System.out.println(new SpiralMatrix().spiralOrder(new int[][]{{1}}));
+        System.out.println(new SpiralMatrix().spiralOrder(new int[][]{}));
+        System.out.println(new SpiralMatrix().spiralOrder(new int[][]{{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}}));
+        System.out.println(new SpiralMatrix().spiralOrder(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}));
     }
 }

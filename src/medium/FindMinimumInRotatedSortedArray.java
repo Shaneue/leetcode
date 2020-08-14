@@ -20,19 +20,21 @@ package medium;
  */
 public class FindMinimumInRotatedSortedArray {
     public int findMin(int[] nums) {
-        int l = 1, r = nums.length - 1;
-        while (l <= r) {
+        int l = 0, r = nums.length - 1;
+        while (l < r) {
             int m = (l + r) / 2;
-            if (nums[m] > nums[0]) {
+            if (nums[m] > nums[r]) {
                 l = m + 1;
             } else {
-                r = m - 1;
+                r = m;
             }
         }
-        return l == nums.length ? nums[0] : nums[l];
+        return nums[r];
     }
 
     public static void main(String[] args) {
         System.out.println(new FindMinimumInRotatedSortedArray().findMin(new int[]{2, 1}));
+        System.out.println(new FindMinimumInRotatedSortedArray().findMin(new int[]{3, 1, 2}));
+        System.out.println(new FindMinimumInRotatedSortedArray().findMin(new int[]{4, 5, 6, 7, 0, 1, 2}));
     }
 }

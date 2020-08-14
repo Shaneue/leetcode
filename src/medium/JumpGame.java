@@ -1,10 +1,5 @@
 package medium;
 
-import java.util.ArrayDeque;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
-
 /**
  * Given an array of non-negative integers, you are initially positioned at the first index of the array.
  * <p>
@@ -24,7 +19,7 @@ import java.util.Queue;
  * Explanation: You will always arrive at index 3 no matter what. Its maximum
  * jump length is 0, which makes it impossible to reach the last index.
  * <p>
- * 不能从后往前，不要用队列，时间复杂度太高。
+ * 千万不要用队列bfs，直接贪心往后走。
  */
 public class JumpGame {
     public boolean canJump(int[] nums) {

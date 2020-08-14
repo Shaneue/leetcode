@@ -33,6 +33,8 @@ package medium;
  * 1 <= text1.length <= 1000
  * 1 <= text2.length <= 1000
  * The input strings consist of lowercase English characters only.
+ * <p>
+ * 注意dp数组长度需要加1
  */
 public class LongestCommonSubsequence {
     public int longestCommonSubsequence(String text1, String text2) {
