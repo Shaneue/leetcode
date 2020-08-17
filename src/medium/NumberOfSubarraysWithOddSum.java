@@ -39,6 +39,8 @@ package medium;
  * <p>
  * 1 <= arr.length <= 10^5
  * 1 <= arr[i] <= 100
+ * <p>
+ * 统计单双的个数时，正着与反着数是一样的，所以直接用sum+=n即可
  */
 public class NumberOfSubarraysWithOddSum {
     public int numOfSubarrays(int[] arr) {
