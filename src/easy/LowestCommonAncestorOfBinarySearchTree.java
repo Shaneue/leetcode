@@ -1,5 +1,7 @@
 package easy;
 
+import common.TreeNode;
+
 /**
  * Given a binary search tree (BST), find the lowest common ancestor (LCA) of two given nodes in the BST.
  * <p>
@@ -33,15 +35,5 @@ public class LowestCommonAncestorOfBinarySearchTree {
             return root;
         if (p.val < root.val) return lowestCommonAncestor(root.left, p, q);
         else return lowestCommonAncestor(root.right, p, q);
-    }
-
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
     }
 }

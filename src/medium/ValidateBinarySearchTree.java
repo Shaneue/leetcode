@@ -1,5 +1,7 @@
 package medium;
 
+import common.TreeNode;
+
 /**
  * Given a binary tree, determine if it is a valid binary search tree (BST).
  * <p>
@@ -33,22 +35,6 @@ package medium;
  * 需要验证每一个子节点是否在范围内
  */
 public class ValidateBinarySearchTree {
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
-
     public boolean isValidBST(TreeNode root) {
         return isValidBST(root, Long.MAX_VALUE, Long.MIN_VALUE);
     }

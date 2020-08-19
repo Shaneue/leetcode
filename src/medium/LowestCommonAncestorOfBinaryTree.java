@@ -1,5 +1,7 @@
 package medium;
 
+import common.TreeNode;
+
 /**
  * Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
  * <p>
@@ -38,16 +40,6 @@ public class LowestCommonAncestorOfBinaryTree {
         if (left != null && right != null)
             return root;
         return left != null ? left : right;
-    }
-
-    static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
     }
 
     public static void main(String[] args) {

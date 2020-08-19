@@ -1,5 +1,7 @@
 package medium;
 
+import common.ListNode;
+
 /**
  * Given a linked list and a value x, partition it such that all nodes less than x come before nodes greater than or equal to x.
  * <p>
@@ -30,15 +32,6 @@ public class PartitionList {
         l2.next = null;
         l1.next = suffix.next;
         return prefix.next;
-    }
-
-    public class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
     }
 
     public static void main(String[] args) {

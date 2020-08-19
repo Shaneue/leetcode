@@ -1,5 +1,7 @@
 package medium;
 
+import common.TreeNode;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -112,17 +114,6 @@ public class WidthOfBinaryTree {
         NodePosition(TreeNode node, int position) {
             this.node = node;
             this.position = position;
-        }
-    }
-
-
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
         }
     }
 

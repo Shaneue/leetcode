@@ -1,5 +1,7 @@
 package medium;
 
+import common.TreeNode;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -54,15 +56,5 @@ public class HouseRobber3 {
         int result = Math.max(in, out);
         cache.put(root, result);
         return result;
-    }
-
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
     }
 }

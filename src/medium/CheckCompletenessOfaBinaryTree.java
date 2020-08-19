@@ -1,5 +1,7 @@
 package medium;
 
+import common.TreeNode;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -22,25 +24,6 @@ import java.util.Queue;
  * The tree will have between 1 and 100 nodes.
  */
 public class CheckCompletenessOfaBinaryTree {
-    static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
-
     public boolean isCompleteTree(TreeNode root) {
         if (root == null) return true;
         Queue<TreeNode> q = new LinkedList<>();

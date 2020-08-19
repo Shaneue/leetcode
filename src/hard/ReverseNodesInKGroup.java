@@ -1,5 +1,7 @@
 package hard;
 
+import common.ListNode;
+
 /**
  * Given a linked list, reverse the nodes of a linked list k at a time and return its modified list.
  * <p>
@@ -48,15 +50,6 @@ public class ReverseNodesInKGroup {
             tailLastGroup = tailCurrentGroup;
         }
         return ret;
-    }
-
-    static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
     }
 
     public static void main(String[] args) {

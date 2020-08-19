@@ -1,5 +1,7 @@
 package medium;
 
+import common.ListNode;
+
 /**
  * Given a linked list, rotate the list to the right by k places, where k is non-negative.
  * <p>
@@ -21,15 +23,6 @@ package medium;
  * rotate 4 steps to the right: 2->0->1->NULL
  */
 public class RotateList {
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
-
     public ListNode rotateRight(ListNode head, int k) {
         int len;
         if (head == null || head.next == null || k == 0) return head;

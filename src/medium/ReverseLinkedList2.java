@@ -1,5 +1,7 @@
 package medium;
 
+import common.ListNode;
+
 /**
  * Reverse a linked list from position m to n. Do it in one-pass.
  * <p>
@@ -38,20 +40,6 @@ public class ReverseLinkedList2 {
         while (ret != null) {
             System.out.println(ret.val);
             ret = ret.next;
-        }
-    }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
         }
     }
 }

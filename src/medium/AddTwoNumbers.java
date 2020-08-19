@@ -1,5 +1,7 @@
 package medium;
 
+import common.ListNode;
+
 /**
  * You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
  * <p>
@@ -31,14 +33,5 @@ public class AddTwoNumbers {
                 l2 = l2.next;
         }
         return head;
-    }
-
-    public class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
     }
 }

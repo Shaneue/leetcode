@@ -1,5 +1,7 @@
 package medium;
 
+import common.TreeNode;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,15 +40,5 @@ public class BinaryTreeLevel {
             current = next;
         }
         return re;
-    }
-
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
     }
 }
