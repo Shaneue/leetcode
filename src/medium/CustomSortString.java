@@ -1,5 +1,9 @@
 package medium;
 
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.function.ToIntFunction;
+
 /**
  * S and T are strings composed of lowercase letters. In S, no letter occurs more than once.
  *
@@ -22,9 +26,32 @@ package medium;
  * S has length at most 26, and no character is repeated in S.
  * T has length at most 200.
  * S and T consist of lowercase letters only.
+ *
+ * 统计T字母，不需要排序
  */
 public class CustomSortString {
     public String customSortString(String S, String T) {
-        return null;
+        int[] count = new int[26];
+        for (char c : T.toCharArray()) {
+            count[c - 'a']++;
+        }
+        StringBuilder sb = new StringBuilder();
+        for (char c : S.toCharArray()) {
+            for (int i = 0; i < count[c - 'a']; i++) {
+                sb.append(c);
+            }
+            count[c - 'a'] = 0;
+        }
+        for (int i = 0; i < 26; i++) {
+            for (int j = 0; j < count[i]; j++) {
+                sb.append((char) ('a' + i));
+            }
+        }
+        return sb.toString();
+    }
+
+    public static void main(String[] args) {
+        CustomSortString c = new CustomSortString();
+        System.out.println(c.customSortString("cba", "abcd"));
     }
 }

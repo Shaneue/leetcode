@@ -1,5 +1,6 @@
 package medium;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -31,6 +32,29 @@ import java.util.List;
  */
 public class Combinations {
     public List<List<Integer>> combine(int n, int k) {
-        return null;
+        List<List<Integer>> ret = new ArrayList<>();
+        dfs(ret, new ArrayList<>(), n, k, 1);
+        return ret;
+    }
+
+    void dfs(List<List<Integer>> ret, List<Integer> currentList, int n, int k, int i) {
+        if (currentList.size() == k) {
+            ret.add(new ArrayList<>(currentList));
+            return;
+        }
+        if (i > n) return;
+        if (k - currentList.size() - 1 <= n - i) {
+            currentList.add(i);
+            dfs(ret, currentList, n, k, i + 1);
+            currentList.remove(currentList.size() - 1);
+        }
+        if (k - currentList.size() <= n - i) {
+            dfs(ret, currentList, n, k, i + 1);
+        }
+    }
+
+    public static void main(String[] args) {
+        Combinations c = new Combinations();
+        System.out.println(c.combine(10, 2).size());
     }
 }
