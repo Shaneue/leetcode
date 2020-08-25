@@ -30,9 +30,9 @@ public class MultiplyStrings {
             }
         }
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < product.length; i++) {
-            if (sb.length() != 0 || product[i] != 0)
-                sb.append(product[i]);
+        for (int i : product) {
+            if (sb.length() != 0 || i != 0)
+                sb.append(i);
         }
         return sb.length() == 0 ? "0" : sb.toString();
     }

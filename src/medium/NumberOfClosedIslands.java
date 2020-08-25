@@ -55,8 +55,8 @@ public class NumberOfClosedIslands {
         if (x < 0 || y < 0 || x >= grid.length || y >= grid[0].length) return false;
         if (grid[x][y] == 1) return true;
         grid[x][y]++;
-        boolean ret = true;
-        ret &= connectedComponent(grid, x + 1, y);
+        boolean ret;
+        ret = connectedComponent(grid, x + 1, y);
         ret &= connectedComponent(grid, x - 1, y);
         ret &= connectedComponent(grid, x, y + 1);
         ret &= connectedComponent(grid, x, y - 1);
