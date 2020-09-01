@@ -46,7 +46,7 @@ package hard;
  * p = "mis*is*p*."
  * Output: false
  *
- * 多种情况需要用｜=来整合
+ * 多种情况需要整合
  */
 public class RegularExpressionMatching {
     public boolean isMatch(String s, String p) {
