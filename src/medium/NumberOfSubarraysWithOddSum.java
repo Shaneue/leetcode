@@ -40,19 +40,21 @@ package medium;
  * 1 <= arr.length <= 10^5
  * 1 <= arr[i] <= 100
  * <p>
- * 统计单双的个数时，正着与反着数是一样的，所以直接用sum+=n即可
+ *
+ * 用前缀和的奇偶来判断也可以
  */
 public class NumberOfSubarraysWithOddSum {
     public int numOfSubarrays(int[] arr) {
-        long sum = 0, c = 0, evens = 0, odds = 0;
+        long c = 0, evens = 0, odds = 0;
         for (int n : arr) {
-            sum += n;
-            if ((sum & 1) == 1) {
+            if ((n & 1) == 1) {
                 c += evens + 1;
-                odds++;
+                long t = evens;
+                evens = odds;
+                odds = t + 1;
             } else {
                 c += odds;
-                evens++;
+                evens = evens + 1;
             }
         }
         return (int) (c % (1e9 + 7));
