@@ -48,24 +48,24 @@ package hard;
  */
 public class JumpGame5 {
     public int maxJumps(int[] arr, int d) {
-        int[] m = new int[arr.length];
+        int[] dp = new int[arr.length];
         int ret = 1;
         for (int i = 0; i < arr.length; i++) {
-            ret = Math.max(ret, dp(i, arr, m, d));
+            ret = Math.max(ret, dp(i, arr, dp, d));
         }
         return ret;
     }
 
-    public int dp(int current, int[] arr, int[] m, int d) {
-        if (m[current] != 0) return m[current];
+    public int dp(int current, int[] arr, int[] dp, int d) {
+        if (dp[current] != 0) return dp[current];
         int ret = 1;
         for (int i = current - 1; i >= 0 && i >= current - d && arr[i] < arr[current]; i--) {
-            ret = Math.max(ret, dp(i, arr, m, d) + 1);
+            ret = Math.max(ret, dp(i, arr, dp, d) + 1);
         }
         for (int i = current + 1; i < arr.length && i <= current + d && arr[i] < arr[current]; i++) {
-            ret = Math.max(ret, dp(i, arr, m, d) + 1);
+            ret = Math.max(ret, dp(i, arr, dp, d) + 1);
         }
-        m[current] = ret;
+        dp[current] = ret;
         return ret;
     }
 

@@ -1,8 +1,5 @@
 package medium;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
 /**
  * We are given an array A of positive integers, and two positive integers L and R (L <= R).
  *
@@ -19,8 +16,6 @@ import java.util.Queue;
  *
  * L, R  and A[i] will be an integer in the range [0, 10^9].
  * The length of A will be in the range of [1, 50000].
- *
- * 也可以：统计连续小于等于R，再统计连续小于L。相减。
  */
 public class NumberOfSubarraysWithBoundedMaximum {
     public int numSubarrayBoundedMax(int[] A, int L, int R) {
