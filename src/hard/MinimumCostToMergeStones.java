@@ -1,7 +1,7 @@
 package hard;
 
 /**
- *There are N piles of stones arranged in a row.  The i-th pile has stones[i] stones.
+ * There are N piles of stones arranged in a row.  The i-th pile has stones[i] stones.
  *
  * A move consists of merging exactly K consecutive piles into one pile, and the cost of this move is equal to the total number of stones in these K piles.
  *

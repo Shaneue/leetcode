@@ -1,8 +1,5 @@
 package hard;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Given a m * n matrix seats that represent seats distributions in a classroom. If a seat is broken, it is denoted by '#' character otherwise it is denoted by a '.' character.
  *
@@ -50,7 +47,7 @@ import java.util.List;
  * 1 <= n <= 8
  *
  * dp，状态压缩
- * dp[i][j] = max{dp[i-1][k]+count[j]}
+ * dp[i][j] = max{dp[i-1][k]+bitCount[j]}
  *
  * dp并不是最优解，用状态压缩，dfs效率最快
  */

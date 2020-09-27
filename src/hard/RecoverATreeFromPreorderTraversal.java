@@ -2,9 +2,6 @@ package hard;
 
 import common.TreeNode;
 
-import java.util.List;
-import java.util.regex.Pattern;
-
 /**
  * We run a preorder depth first search on the root of a binary tree.
  *
@@ -51,17 +48,17 @@ public class RecoverATreeFromPreorderTraversal {
         return construct(S, new int[]{0}, 0);
     }
 
-    TreeNode construct(String s, int[] c, int level) {
+    TreeNode construct(String s, int[] i, int level) {
         int count = 0, val = 0;
-        while (c[0] + count < s.length() && s.charAt(c[0] + count) == '-') ++count;
+        while (i[0] + count < s.length() && s.charAt(i[0] + count) == '-') ++count;
         if (count != level) return null;
-        c[0] += count;
-        for (; c[0] < s.length() && s.charAt(c[0]) != '-'; ++c[0]) {
-            val = 10 * val + (s.charAt(c[0]) - '0');
+        i[0] += count;
+        for (; i[0] < s.length() && s.charAt(i[0]) != '-'; ++i[0]) {
+            val = 10 * val + (s.charAt(i[0]) - '0');
         }
         TreeNode node = new TreeNode(val);
-        node.left = construct(s, c, level + 1);
-        node.right = construct(s, c, level + 1);
+        node.left = construct(s, i, level + 1);
+        node.right = construct(s, i, level + 1);
         return node;
     }
 }

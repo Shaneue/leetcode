@@ -19,18 +19,18 @@ public class ConstructBinarySearchTreeFromPreorderTraversal {
         return construct(preorder, 0, preorder.length);
     }
 
-    TreeNode construct(int[] pre, int i, int len) {
+    TreeNode construct(int[] preOrder, int i, int len) {
         if (len <= 0) return null;
-        TreeNode root = new TreeNode(pre[i]);
+        TreeNode root = new TreeNode(preOrder[i]);
         if (len == 1) return root;
         int k = i;
-        while (k < i + len && pre[k] <= pre[i]) {
+        while (k < i + len && preOrder[k] <= preOrder[i]) {
             k++;
         }
-        if (k >= i + len || pre[k] > pre[i]) k--;
+        if (k >= i + len || preOrder[k] > preOrder[i]) k--;
         int l = k - i;
-        root.left = construct(pre, i + 1, l);
-        root.right = construct(pre, i + l + 1, len - l - 1);
+        root.left = construct(preOrder, i + 1, l);
+        root.right = construct(preOrder, i + l + 1, len - l - 1);
         return root;
     }
 

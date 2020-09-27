@@ -47,22 +47,22 @@ import java.util.Map;
 public class MaximumFrequencyStack {
     int max = 0;
     Map<Integer, Integer> frequency = new HashMap<>();
-    Map<Integer, LinkedList<Integer>> nums = new HashMap<>();
+    Map<Integer, LinkedList<Integer>> fSet = new HashMap<>();
 
     public void push(int x) {
         int f = frequency.getOrDefault(x, 0);
         f++;
         max = Math.max(max, f);
         frequency.put(x, f);
-        LinkedList<Integer> q = nums.getOrDefault(f, new LinkedList<>());
+        LinkedList<Integer> q = fSet.getOrDefault(f, new LinkedList<>());
         q.push(x);
-        nums.put(f, q);
+        fSet.put(f, q);
     }
 
     public int pop() {
-        int x = nums.get(max).pop();
+        int x = fSet.get(max).pop();
         frequency.put(x, frequency.get(x) - 1);
-        if (nums.get(max).isEmpty()) max--;
+        if (fSet.get(max).isEmpty()) max--;
         return x;
     }
 

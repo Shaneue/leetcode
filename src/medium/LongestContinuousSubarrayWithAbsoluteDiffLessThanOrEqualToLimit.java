@@ -39,6 +39,8 @@ import java.util.LinkedList;
  * 1 <= nums.length <= 10^5
  * 1 <= nums[i] <= 10^9
  * 0 <= limit <= 10^9
+ *
+ * 双单调队列
  */
 public class LongestContinuousSubarrayWithAbsoluteDiffLessThanOrEqualToLimit {
     public int longestSubarray(int[] nums, int limit) {
