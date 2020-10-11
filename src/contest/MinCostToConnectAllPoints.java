@@ -1,8 +1,6 @@
 package contest;
 
-import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.List;
 import java.util.PriorityQueue;
 
 /**
@@ -45,7 +43,7 @@ import java.util.PriorityQueue;
  * Constraints:
  *
  * 1 <= points.length <= 1000
- * -106 <= xi, yi <= 106
+ * -10^6 <= xi, yi <= 10^6
  * All pairs (xi, yi) are distinct.
  *
  * 用堆优化

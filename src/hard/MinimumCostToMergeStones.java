@@ -41,6 +41,7 @@ package hard;
  * 2 <= K <= 30
  * 1 <= stones[i] <= 100
  *
+ * range dp
  * 注意要加一遍区间和，核心在第二个+=
  * dp[i][j]=min(dp[i][j], dp[i][t] + dp[t + 1][j])
  * dp[i][j]+=preSum[j]-preSum[i-1] for (j - i) % (K - 1) == 0
@@ -55,8 +56,8 @@ public class MinimumCostToMergeStones {
         int[] preSum = new int[l + 1];
         for (int i = 1; i <= l; i++) preSum[i] = preSum[i - 1] + stones[i - 1];
         int[][] dp = new int[l][l];
-        for (int len = K - 1; len < l; ++len) {
-            for (int i = 0; i + len < l; ++i) {
+        for (int len = K - 1; len < l; len++) {
+            for (int i = 0; i + len < l; i++) {
                 int j = i + len;
                 dp[i][j] = Integer.MAX_VALUE;
                 for (int t = i; t < j; t += K - 1) {
