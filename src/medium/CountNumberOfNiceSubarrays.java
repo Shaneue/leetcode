@@ -30,18 +30,18 @@ package medium;
  * 1 <= k <= nums.length
  *
  * 用累加代替乘
- * pre数组记录even个数，遍历一次即可
+ * pre数组记录两个odd间元素个数，遍历一次即可
  */
 public class CountNumberOfNiceSubarrays {
     public int numberOfSubarrays(int[] nums, int k) {
-        int[] pre = new int[nums.length];
+        int[] gap = new int[nums.length];
         int odd = 0;
         int ret = 0;
         for (int i : nums) {
-            pre[odd]++;
+            gap[odd]++;
             if (i % 2 == 1) odd++;
             if (odd >= k) {
-                ret += pre[odd - k];
+                ret += gap[odd - k];
             }
         }
         return ret;

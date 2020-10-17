@@ -36,24 +36,24 @@ import java.util.Arrays;
 public class BagOfTokens {
     public int bagOfTokensScore(int[] tokens, int P) {
         Arrays.sort(tokens);
-        int l = 0, r = tokens.length - 1, re = 0, current = 0;
+        int l = 0, r = tokens.length - 1, ret = 0, currentPoints = 0;
         while (l <= r) {
             if (P >= tokens[l]) {
-                current++;
+                currentPoints++;
                 P -= tokens[l];
                 l++;
-                if (current > re) {
-                    re = current;
+                if (currentPoints > ret) {
+                    ret = currentPoints;
                 }
-            } else if (current > 0) {
-                current--;
+            } else if (currentPoints > 0) {
+                currentPoints--;
                 P += tokens[r];
                 r--;
             } else {
                 break;
             }
         }
-        return re;
+        return ret;
     }
 
     public static void main(String[] args) {

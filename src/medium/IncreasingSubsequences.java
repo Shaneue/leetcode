@@ -31,10 +31,10 @@ public class IncreasingSubsequences {
         return ret;
     }
 
-    public void search(List<List<Integer>> ret, List<Integer> list, int[] nums, int index) {
+    public void search(List<List<Integer>> ret, List<Integer> list, int[] nums, int idx) {
         if (list.size() >= 2) ret.add(new ArrayList<>(list));
         boolean[] visited = new boolean[201];
-        for (int i = index; i < nums.length; i++) {
+        for (int i = idx; i < nums.length; i++) {
             if ((list.size() == 0 || list.get(list.size() - 1) <= nums[i]) && !visited[nums[i] + 100]) {
                 visited[nums[i] + 100] = true;
                 list.add(nums[i]);

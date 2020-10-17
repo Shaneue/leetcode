@@ -1,6 +1,7 @@
 package medium;
 
-import java.util.*;
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * Given an array of integers nums and a positive integer k, find whether it's possible to divide this array into sets of k consecutive numbers
@@ -33,35 +34,21 @@ import java.util.*;
  * 1 <= nums[i] <= 10^9
  * 1 <= k <= nums.length
  * <p>
- * 需要先排序
+ * 从最小值开始
  */
 public class DivideArrayInSetsOfKConsecutiveNumbers {
-    public boolean isPossibleDivide(int[] nums, int k) {
-        int l = nums.length;
-        if (l % k != 0) return false;
-        int size = l / k;
-        Arrays.sort(nums);
-        Map<Integer, Queue<Integer>> map = new HashMap<>();
-        for (int n : nums) {
-            if (map.containsKey(n - 1)) {
-                Queue<Integer> q = map.get(n - 1);
-                int len = q.poll();
-                if (q.isEmpty()) map.remove(n - 1);
-                if (++len == k) {
-                    size--;
-                } else {
-                    q = map.getOrDefault(n, new LinkedList<>());
-                    q.add(len);
-                    map.put(n, q);
+    public boolean isPossibleDivide(int[] A, int k) {
+        Map<Integer, Integer> map = new TreeMap<>();
+        for (int i : A) map.put(i, map.getOrDefault(i, 0) + 1);
+        for (int key : map.keySet()) {
+            if (map.get(key) > 0) {
+                for (int i = k - 1; i >= 0; i--) {
+                    if (map.getOrDefault(key + i, 0) < map.get(key)) return false;
+                    map.put(key + i, map.get(key + i) - map.get(key));
                 }
-            } else {
-                if (map.size() == size) return false;
-                Queue<Integer> q = map.getOrDefault(n, new LinkedList<>());
-                q.add(1);
-                map.put(n, q);
             }
         }
-        return size == 0;
+        return true;
     }
 
     public static void main(String[] args) {

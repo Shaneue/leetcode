@@ -33,24 +33,24 @@ public class FourSum {
             }
             for (int j = i + 1; j < nums.length; j++) {
                 if (j > i + 1 && nums[j - 1] == nums[j]) continue;
-                int k = j + 1, l = nums.length - 1;
+                int l = j + 1, r = nums.length - 1;
                 int remain = target - nums[i] - nums[j];
-                while (k < l) {
-                    if (remain == nums[k] + nums[l]) {
+                while (l < r) {
+                    if (remain == nums[l] + nums[r]) {
                         List<Integer> list = new ArrayList<>();
                         list.add(nums[i]);
                         list.add(nums[j]);
-                        list.add(nums[k]);
                         list.add(nums[l]);
+                        list.add(nums[r]);
                         ret.add(list);
-                        while (k < l && nums[k + 1] == nums[k]) k++;
-                        while (k < l && nums[l - 1] == nums[l]) l--;
-                        k++;
-                        l--;
-                    } else if (remain > nums[k] + nums[l]) {
-                        k++;
+                        while (l < r && nums[l + 1] == nums[l]) l++;
+                        while (l < r && nums[r - 1] == nums[r]) r--;
+                        l++;
+                        r--;
+                    } else if (remain > nums[l] + nums[r]) {
+                        l++;
                     } else {
-                        l--;
+                        r--;
                     }
                 }
             }

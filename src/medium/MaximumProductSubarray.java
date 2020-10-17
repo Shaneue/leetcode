@@ -14,8 +14,7 @@ package medium;
  * Output: 0
  * Explanation: The result cannot be 2, because [-2,-1] is not a subarray.
  *
- * 不要用循环两次迭代，只要n的时间复杂度
- * 根据前缀数组中负数的个数来判断，注意结果不一定在最后
+ * 属于dp
  */
 public class MaximumProductSubarray {
     public int maxProduct(int[] nums) {

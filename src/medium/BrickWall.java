@@ -29,18 +29,20 @@ import java.util.Map;
  * <p>
  * The width sum of bricks in different rows are the same and won't exceed INT_MAX.
  * The number of bricks in each row is in range [1,10,000]. The height of wall is in range [1,10,000]. Total number of bricks of the wall won't exceed 20,000.
+ *
+ * 等价于最多能穿过多少条边
  */
 public class BrickWall {
     public int leastBricks(List<List<Integer>> wall) {
-        Map<Integer, Integer> recorder = new HashMap<>();
+        Map<Integer, Integer> sumMap = new HashMap<>();
         int ret = Integer.MIN_VALUE;
         for (List<Integer> row : wall) {
             int sum = 0;
             for (int i = 0; i < row.size() - 1; i++) {
                 sum += row.get(i);
-                int c = recorder.getOrDefault(sum, 0);
+                int c = sumMap.getOrDefault(sum, 0);
                 c++;
-                recorder.put(sum, c);
+                sumMap.put(sum, c);
                 ret = Math.max(ret, c);
             }
         }

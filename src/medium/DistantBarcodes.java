@@ -1,6 +1,9 @@
 package medium;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.PriorityQueue;
 
 /**
  * In a warehouse, there is a row of barcodes, where the i-th barcode is barcodes[i].
@@ -25,7 +28,7 @@ import java.util.*;
  * 1 <= barcodes[i] <= 10000
  *
  *
- * 最快的方法是从左向右遍历，消除相邻且相同元素。这一趟消除不完全，需要再从右向左消除一次才能达到目的。
+ * 最快的方法是统计个数，按个数排序，先填odd下标元素，再填even下标元素
  */
 public class DistantBarcodes {
     public int[] rearrangeBarcodes(int[] barcodes) {

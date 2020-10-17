@@ -27,7 +27,11 @@ public class RotateList {
         int len;
         if (head == null || head.next == null || k == 0) return head;
         ListNode h = head;
-        for (len = 1; head.next != null; len++, head = head.next) ;
+        len = 1;
+        while (head.next != null) {
+            len++;
+            head = head.next;
+        }
         head.next = h;
         for (int i = 0; i < len - k % len; i++) head = head.next;
         h = head;

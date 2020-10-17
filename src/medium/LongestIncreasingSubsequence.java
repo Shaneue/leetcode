@@ -29,7 +29,7 @@ public class LongestIncreasingSubsequence {
     int binarySearch(int[] dp, int n, int v) {
         int l = 0, r = n;
         while (l <= r) {
-            int m = (l + r) / 2;
+            int m = l + (r - l) / 2;
             if (dp[m] >= v) {
                 r = m - 1;
             } else {

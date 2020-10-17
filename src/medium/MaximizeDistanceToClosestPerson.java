@@ -35,7 +35,7 @@ package medium;
  *
  * Constraints:
  *
- * 2 <= seats.length <= 2 * 104
+ * 2 <= seats.length <= 2 * 10^4
  * seats[i] is 0 or 1.
  * At least one seat is empty.
  * At least one seat is occupied.

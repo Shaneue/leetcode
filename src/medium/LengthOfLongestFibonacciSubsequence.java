@@ -35,7 +35,7 @@ import java.util.Map;
  * 1 <= A[0] < A[1] < ... < A[A.length - 1] <= 10^9
  * (The time limit has been reduced by 50% for submissions in Java, C, and C++.)
  *
- * dp[i][j]=dp[k][i]+1, A[k]+A[i]=A[j]
+ * dp[i][j]=max(dp[k][i])+1, A[k]+A[i]=A[j]
  */
 public class LengthOfLongestFibonacciSubsequence {
     public int lenLongestFibSubseq(int[] A) {

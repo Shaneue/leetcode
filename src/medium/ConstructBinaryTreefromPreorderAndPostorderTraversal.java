@@ -25,7 +25,7 @@ import java.util.Map;
  * It is guaranteed an answer exists. If there exists multiple answers, you can return any of them.
  *
  * preorder与postorder不能确定唯一二叉树
- * j时post的起点位置，i是pre的起点位置，通过pre与post求对应左右子树的范围，且它们都是连续的区间。
+ * j是post的起点位置，i是pre的起点位置，通过pre与post求对应左右子树的长度，且它们都是连续的区间。
  */
 public class ConstructBinaryTreefromPreorderAndPostorderTraversal {
     public TreeNode constructFromPrePost(int[] pre, int[] post) {

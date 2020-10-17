@@ -34,7 +34,7 @@ import java.util.Map;
  * The given linked list will contain between 1 and 1000 nodes.
  * Each node in the linked list has -1000 <= node.val <= 1000.
  *
- * 懒得清理preSum的话，直接从来开始数即可
+ * 懒得维护preSum的话，直接从头开始数即可
  */
 public class RemoveZeroSumConsecutiveNodesFromLinkedList {
     public ListNode removeZeroSumSublists(ListNode head) {

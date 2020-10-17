@@ -38,7 +38,7 @@ import common.TreeNode;
  * Each tree has at most 50000 nodes and at least 2 nodes.
  * Each node's value is between [1, 10000].
  *
- * 用map会降低效率
+ * 用map会降低效率，先求sum简单易懂
  */
 public class MaximumProductOfSplittedBinaryTree {
     public int maxProduct(TreeNode root) {

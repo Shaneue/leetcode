@@ -30,13 +30,13 @@ public class EvaluateDivision {
             double val = values[i];
             dfs(g, s, e, val);
         }
-        double[] ans = new double[queries.size()];
+        double[] ret = new double[queries.size()];
         for (int i = 0; i < queries.size(); i++) {
             String s = queries.get(i).get(0);
             String e = queries.get(i).get(1);
-            ans[i] = g.get(s) == null ? -1.0 : (g.get(s).get(e) == null ? -1.0 : g.get(s).get(e));
+            ret[i] = g.get(s) == null ? -1.0 : (g.get(s).get(e) == null ? -1.0 : g.get(s).get(e));
         }
-        return ans;
+        return ret;
     }
 
     void dfs(Map<String, Map<String, Double>> g, String s, String e, double value) {

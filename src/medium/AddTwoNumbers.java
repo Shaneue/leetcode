@@ -19,19 +19,19 @@ public class AddTwoNumbers {
         boolean carry = (l1.val + l2.val) >= 10;
         l1 = l1.next;
         l2 = l2.next;
-        ListNode l = new ListNode(remainder);
-        ListNode head = l;
+        ListNode head = new ListNode(remainder);
+        ListNode ret = head;
         while (l1 != null || l2 != null || carry) {
-            int tmp = (l1 != null ? l1.val : 0) + (l2 != null ? l2.val : 0) + (carry ? 1 : 0);
-            remainder = tmp % 10;
-            carry = tmp >= 10;
-            l.next = new ListNode(remainder);
-            l = l.next;
+            int t = (l1 != null ? l1.val : 0) + (l2 != null ? l2.val : 0) + (carry ? 1 : 0);
+            remainder = t % 10;
+            carry = t >= 10;
+            head.next = new ListNode(remainder);
+            head = head.next;
             if (l1 != null)
                 l1 = l1.next;
             if (l2 != null)
                 l2 = l2.next;
         }
-        return head;
+        return ret;
     }
 }

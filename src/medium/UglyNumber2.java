@@ -17,6 +17,28 @@ package medium;
  */
 public class UglyNumber2 {
     public int nthUglyNumber(int n) {
+        int[] array = new int[n];
+        array[0] = 1;
+        int p2, p3, p5;
+        p2 = p3 = p5 = 0;
+        for (int i = 1; i < n; i++) {
+            int a = array[p2] * 2;
+            int b = array[p3] * 3;
+            int c = array[p5] * 5;
+            array[i] = Math.min(a, Math.min(b, c));
+            if (a == array[i]) p2++;
+            if (b == array[i]) p3++;
+            if (c == array[i]) p5++;
+        }
+        return array[n - 1];
+    }
+
+    public static void main(String[] args) {
+        UglyNumber2 u = new UglyNumber2();
+        System.out.println(u.nthUglyNumber(10));
+    }
+
+    public int nthUglyNumberList(int n) {
         Node list = new Node(1);
         Node n1, n2, n3;
         n1 = n2 = n3 = list;

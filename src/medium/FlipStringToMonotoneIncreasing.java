@@ -31,7 +31,7 @@ package medium;
  * 1 <= S.length <= 20000
  * S only consists of '0' and '1' characters.
  *
- * 最简化的代码有点技巧，count为1的个数，遇到0就翻1一定可以组成单调串，然后和1的个数对比一下取最小
+ * Greedy，count为1的个数，遇到0就翻1一定可以组成单调串，然后和1的个数对比一下取最小
  */
 public class FlipStringToMonotoneIncreasing {
     public int minFlipsMonoIncr(String S) {

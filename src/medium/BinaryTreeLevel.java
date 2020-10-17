@@ -25,20 +25,20 @@ import java.util.List;
 public class BinaryTreeLevel {
     public List<List<Integer>> levelOrder(TreeNode root) {
         if (root == null) return new ArrayList<>();
-        List<List<Integer>> re = new ArrayList<>();
-        List<TreeNode> current = new ArrayList<>();
-        current.add(root);
-        while (!current.isEmpty()) {
-            List<Integer> ints = new ArrayList<>();
+        List<List<Integer>> ret = new ArrayList<>();
+        List<TreeNode> q = new ArrayList<>();
+        q.add(root);
+        while (!q.isEmpty()) {
+            List<Integer> level = new ArrayList<>();
             List<TreeNode> next = new ArrayList<>();
-            for (TreeNode node : current) {
-                ints.add(node.val);
+            for (TreeNode node : q) {
+                level.add(node.val);
                 if (node.left != null) next.add(node.left);
                 if (node.right != null) next.add(node.right);
             }
-            re.add(ints);
-            current = next;
+            ret.add(level);
+            q = next;
         }
-        return re;
+        return ret;
     }
 }

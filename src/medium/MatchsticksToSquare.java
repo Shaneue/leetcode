@@ -21,7 +21,7 @@ import java.util.Arrays;
  * The length sum of the given matchsticks is in the range of 0 to 10^9.
  * The length of the given matchstick array will not exceed 15.
  *
- * 先排序，然后递归
+ * 先排序，然后递归，从大到小
  */
 public class MatchsticksToSquare {
     public boolean makesquare(int[] nums) {

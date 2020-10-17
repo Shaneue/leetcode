@@ -29,7 +29,6 @@ public class NumberOfSubarraysWithBoundedMaximum {
                 inbound = i;
                 ret += inbound - outbound;
             } else if (A[i] < L && inbound > outbound) {
-                // 保证该值不会是子数组最大值
                 ret += inbound - outbound;
             }
         }

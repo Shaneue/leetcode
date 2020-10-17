@@ -22,27 +22,29 @@ import java.util.Queue;
  * Note:
  * <p>
  * The tree will have between 1 and 100 nodes.
+ *
+ * flag为false表示之后不会再往队列加node了
  */
 public class CheckCompletenessOfaBinaryTree {
     public boolean isCompleteTree(TreeNode root) {
         if (root == null) return true;
         Queue<TreeNode> q = new LinkedList<>();
         q.add(root);
-        boolean notNull = true;
+        boolean flag = true;
         while (!q.isEmpty()) {
             Queue<TreeNode> t = new LinkedList<>();
             for (TreeNode node : q) {
                 if (node.left != null) {
-                    if (!notNull) return false;
+                    if (!flag) return false;
                     t.add(node.left);
                 } else {
-                    notNull = false;
+                    flag = false;
                 }
                 if (node.right != null) {
-                    if (!notNull) return false;
+                    if (!flag) return false;
                     t.add(node.right);
                 } else {
-                    notNull = false;
+                    flag = false;
                 }
             }
             q = t;

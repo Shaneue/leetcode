@@ -1,9 +1,5 @@
 package medium;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.function.ToIntFunction;
-
 /**
  * S and T are strings composed of lowercase letters. In S, no letter occurs more than once.
  *

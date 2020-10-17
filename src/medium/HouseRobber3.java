@@ -53,8 +53,8 @@ public class HouseRobber3 {
             in += (rob(root.right.left) + rob(root.right.right));
             out += rob(root.right);
         }
-        int result = Math.max(in, out);
-        cache.put(root, result);
-        return result;
+        int ret = Math.max(in, out);
+        cache.put(root, ret);
+        return ret;
     }
 }

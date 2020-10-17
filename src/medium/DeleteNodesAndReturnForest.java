@@ -43,18 +43,18 @@ public class DeleteNodesAndReturnForest {
     }
 
     void dfs(List<TreeNode> ret, Set<Integer> set, TreeNode node, boolean parentNull) {
-        boolean toNull = set.contains(node.val);
+        boolean isNull = set.contains(node.val);
         if (node.left != null) {
             boolean f = set.contains(node.left.val);
-            dfs(ret, set, node.left, toNull);
-            if (!toNull && f) node.left = null;
+            dfs(ret, set, node.left, isNull);
+            if (!isNull && f) node.left = null;
         }
         if (node.right != null) {
             boolean f = set.contains(node.right.val);
-            dfs(ret, set, node.right, toNull);
-            if (!toNull && f) node.right = null;
+            dfs(ret, set, node.right, isNull);
+            if (!isNull && f) node.right = null;
         }
-        if (!toNull && parentNull) ret.add(node);
+        if (!isNull && parentNull) ret.add(node);
     }
 
     public static void main(String[] args) {

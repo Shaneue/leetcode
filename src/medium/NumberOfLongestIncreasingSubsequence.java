@@ -1,5 +1,7 @@
 package medium;
 
+import java.util.Arrays;
+
 /**
  * Given an unsorted array of integers, find the number of longest increasing subsequence.
  * <p>
@@ -22,10 +24,8 @@ public class NumberOfLongestIncreasingSubsequence {
         int l = nums.length;
         int[] len = new int[l];
         int[] count = new int[l];
-        for (int i = 0; i < l; i++) {
-            len[i] = 1;
-            count[i] = 1;
-        }
+        Arrays.fill(len, 1);
+        Arrays.fill(count, 1);
         int max = 0;
         int ret = 0;
         for (int i = 0; i < l; i++) {
