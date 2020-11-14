@@ -47,6 +47,9 @@ package hard;
  * Output: false
  *
  * 多种情况需要整合
+ * 递归与dp都不错
+ * 先考虑'*'，考虑'*'前面的'.'
+ * 在考虑单独的'.'
  */
 public class RegularExpressionMatching {
     public boolean isMatch(String s, String p) {

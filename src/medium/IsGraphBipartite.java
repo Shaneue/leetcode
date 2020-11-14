@@ -1,9 +1,7 @@
 package medium;
 
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Set;
 
 /**
  * Given an undirected graph, return true if and only if it is bipartite.

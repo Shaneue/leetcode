@@ -46,7 +46,9 @@ import java.util.PriorityQueue;
  * -10^6 <= xi, yi <= 10^6
  * All pairs (xi, yi) are distinct.
  *
- * 用堆优化
+ * 最小生成树用堆优化
+ * prime+pq
+ * kruskal+uf
  */
 public class MinCostToConnectAllPoints {
     public int minCostConnectPoints(int[][] points) {
