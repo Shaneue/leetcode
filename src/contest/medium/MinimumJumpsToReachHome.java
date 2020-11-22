@@ -1,8 +1,6 @@
 package contest.medium;
 
-import java.util.HashSet;
 import java.util.LinkedList;
-import java.util.Set;
 
 /**
  * A certain bug's home is on the x-axis at position x. Help them get there from position 0.
@@ -45,12 +43,8 @@ import java.util.Set;
  */
 public class MinimumJumpsToReachHome {
     public int minimumJumps(int[] forbidden, int a, int b, int x) {
-        Set<Integer> forbid = new HashSet<>();
         boolean[][] visited = new boolean[8888][2];
-        for (int i : forbidden) {
-            forbid.add(i);
-            visited[i][0] = visited[i][1] = true;
-        }
+        for (int i : forbidden) visited[i][0] = visited[i][1] = true;
         int ret = 0;
         LinkedList<int[]> q = new LinkedList<>();
         q.add(new int[]{0, 0});
@@ -60,12 +54,12 @@ public class MinimumJumpsToReachHome {
                 int[] p = q.poll();
                 if (p[0] == x) return ret;
                 int idx = p[0] - b;
-                if (idx >= 0 && !visited[idx][1] && !forbid.contains(idx) && p[1] == 0) {
+                if (idx >= 0 && !visited[idx][1] && p[1] == 0) {
                     q.add(new int[]{idx, 1});
                     visited[idx][1] = true;
                 }
                 idx = p[0] + a;
-                if (!visited[idx][0] && !forbid.contains(idx) && idx <= 6000) {
+                if (!visited[idx][0] && idx <= 6000) {
                     q.add(new int[]{idx, 0});
                     visited[idx][0] = true;
                 }
