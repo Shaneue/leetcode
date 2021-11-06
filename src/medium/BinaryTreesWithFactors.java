@@ -1,6 +1,8 @@
 package medium;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Given an array of unique integers, each integer is strictly greater than 1.

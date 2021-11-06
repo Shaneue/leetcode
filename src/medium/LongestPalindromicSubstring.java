@@ -20,14 +20,14 @@ public class LongestPalindromicSubstring {
         if (s.length() == 0) return "";
         int left, right;
         int l = 0, r = 0;
-        int start = 0;
-        while (start < s.length()) {
-            left = start;
-            start++;
-            while (start < s.length() && s.charAt(start) == s.charAt(start - 1)) {
-                start++;
+        int current = 0;
+        while (current < s.length()) {
+            left = current;
+            current++;
+            while (current < s.length() && s.charAt(current) == s.charAt(current - 1)) {
+                current++;
             }
-            right = start;
+            right = current;
             while (left > 0 && right < s.length() && s.charAt(left - 1) == s.charAt(right)) {
                 left--;
                 right++;

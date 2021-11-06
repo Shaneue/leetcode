@@ -39,6 +39,8 @@ import java.util.List;
  * 0 <= ai, bi < numCourses
  * ai != bi
  * All the pairs [ai, bi] are distinct.
+ *
+ * 拓扑排序中返回一个可行的遍历顺序
  */
 public class CourseSchedule2 {
     public int[] findOrder(int numCourses, int[][] prerequisites) {

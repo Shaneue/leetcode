@@ -39,7 +39,7 @@ public class PathSum2 {
         if (node == null) return;
         current.add(node.val);
         sum += node.val;
-        if (sum == target && node.left == null & node.right == null) ret.add(new ArrayList<>(current));
+        if (sum == target && node.left == null && node.right == null) ret.add(new ArrayList<>(current));
         dfs(ret, current, node.left, sum, target);
         dfs(ret, current, node.right, sum, target);
         current.remove(current.size() - 1);

@@ -45,19 +45,19 @@ public class DistantBarcodes {
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
             pq.add(new int[]{entry.getKey(), entry.getValue()});
         }
-        int[] re = new int[barcodes.length];
+        int[] ret = new int[barcodes.length];
         int i = 0;
         while (!pq.isEmpty()) {
             int[] array = pq.poll();
             for (int j = 0; j < array[1]; j++) {
-                re[i] = array[0];
+                ret[i] = array[0];
                 i += 2;
                 if (i >= barcodes.length) {
                     i = 1;
                 }
             }
         }
-        return re;
+        return ret;
     }
 
     public static void main(String[] args) {

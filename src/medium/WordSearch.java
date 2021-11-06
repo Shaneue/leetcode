@@ -29,46 +29,37 @@ package medium;
  * 时间最快，空间复杂度太高
  */
 public class WordSearch {
-    public boolean exist(char[][] board, String word) {
-        boolean[][] occupied = new boolean[board.length][board[0].length];
-        return solve(board, occupied, word, 0, -1, -1);
+    int[] direction = new int[]{1, 0, -1, 0, 1};
+
+    public boolean search(char[][] matrix, String word) {
+        boolean[][] used = new boolean[matrix.length][matrix[0].length];
+        return solve(matrix, used, word, 0, -1, -1);
     }
 
-    public boolean solve(char[][] array, boolean[][] occupied, String target, int index, int x, int y) {
-        if (index > target.length() - 1)
+    public boolean solve(char[][] matrix, boolean[][] used, String target, int idx, int x, int y) {
+        if (idx > target.length() - 1)
             return true;
         if (x == -1) {
-            for (int i = 0; i < array.length; i++) {
-                for (int j = 0; j < array[0].length; j++) {
-                    if (array[i][j] == target.charAt(index)) {
-                        occupied[i][j] = true;
-                        if (solve(array, occupied, target, index + 1, i, j)) {
+            for (int i = 0; i < matrix.length; i++) {
+                for (int j = 0; j < matrix[0].length; j++) {
+                    if (matrix[i][j] == target.charAt(idx)) {
+                        used[i][j] = true;
+                        if (solve(matrix, used, target, idx + 1, i, j)) {
                             return true;
                         }
-                        occupied[i][j] = false;
+                        used[i][j] = false;
                     }
                 }
             }
         } else {
-            if (x - 1 > -1 && !occupied[x - 1][y] && array[x - 1][y] == target.charAt(index)) {
-                occupied[x - 1][y] = true;
-                if (solve(array, occupied, target, index + 1, x - 1, y)) return true;
-                occupied[x - 1][y] = false;
-            }
-            if (x + 1 < array.length && !occupied[x + 1][y] && array[x + 1][y] == target.charAt(index)) {
-                occupied[x + 1][y] = true;
-                if (solve(array, occupied, target, index + 1, x + 1, y)) return true;
-                occupied[x + 1][y] = false;
-            }
-            if (y - 1 > -1 && !occupied[x][y - 1] && array[x][y - 1] == target.charAt(index)) {
-                occupied[x][y - 1] = true;
-                if (solve(array, occupied, target, index + 1, x, y - 1)) return true;
-                occupied[x][y - 1] = false;
-            }
-            if (y + 1 < array[0].length && !occupied[x][y + 1] && array[x][y + 1] == target.charAt(index)) {
-                occupied[x][y + 1] = true;
-                if (solve(array, occupied, target, index + 1, x, y + 1)) return true;
-                occupied[x][y + 1] = false;
+            for (int i = 0; i < 4; i++) {
+                int xt = x + direction[i];
+                int yt = y + direction[i + 1];
+                if (xt > -1 && xt < matrix.length && yt > -1 && yt < matrix[0].length && matrix[xt][yt] == target.charAt(idx)) {
+                    used[xt][yt] = true;
+                    if (solve(matrix, used, target, idx + 1, xt, yt)) return true;
+                    used[xt][yt] = false;
+                }
             }
         }
         return false;
@@ -76,7 +67,9 @@ public class WordSearch {
 
 
     public static void main(String[] args) {
-        char[][] board = new char[][]{{'a', 'a', 'a', 'a'}, {'a', 'a', 'a', 'a'}, {'a', 'a', 'a', 'a'}};
-        System.out.println(new WordSearch().exist(board, "aaaaaaaaaaaaa"));
+        char[][] board = new char[][]{{'A', 'B', 'O', 'U'}, {'E', 'T', 'R', 'T'}, {'D', 'D', 'A', 'Y'}};
+        System.out.println(new WordSearch().search(board, "DAY"));
+        System.out.println(new WordSearch().search(board, "ABORTED"));
+        System.out.println(new WordSearch().search(board, "TRY"));
     }
 }

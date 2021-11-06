@@ -41,7 +41,9 @@ package medium;
  * x1 < x2
  * y1 < y2
  *
- * 先转移至坐标系原点，求圆心到矩形最短距离，再比较与半径的大小
+ * 取三个点的中间那个点，到圆心的距离，与圆的半径作比较得出结果。
+ * 就是先判断圆心是否在矩形内，如果在，则必然重叠；
+ * 不在，则判断圆心到矩形最近的距离与半径的关系
  */
 public class CircleAndRectangleOverlapping {
     public boolean checkOverlap(int radius, int x_center, int y_center, int x1, int y1, int x2, int y2) {

@@ -36,6 +36,7 @@ import java.util.Queue;
  * 1 <= numCourses <= 10^5
  *
  * 拓扑排序，主要有bfs跟dfs方法。
+ * 遍历依赖之前，先设置visited为-1
  * bfs时，取入度为0的节点进行遍历。
  */
 public class CourseSchedule {

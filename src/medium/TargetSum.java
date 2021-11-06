@@ -31,7 +31,9 @@ package medium;
 public class TargetSum {
     public int findTargetSumWays(int[] nums, int S) {
         int sum = 0;
-        for (int i : nums) sum += i;
+        for (int i : nums) {
+            sum += i;
+        }
         if ((sum + S) % 2 == 1 || sum < S) return 0;
         int target = (sum + S) / 2;
         int[] dp = new int[target + 1];

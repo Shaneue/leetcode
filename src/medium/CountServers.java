@@ -47,7 +47,7 @@ public class CountServers {
         int[] row = new int[grid.length];
         int[] column = new int[grid[0].length];
         List<int[]> computers = new ArrayList<>();
-        int re = 0;
+        int ret = 0;
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[i].length; j++) {
                 if (grid[i][j] == 1) {
@@ -59,10 +59,10 @@ public class CountServers {
         }
         for (int[] computer : computers) {
             if (row[computer[0]] > 1 || column[computer[1]] > 1) {
-                re++;
+                ret++;
             }
         }
-        return re;
+        return ret;
     }
 
     public static void main(String[] args) {

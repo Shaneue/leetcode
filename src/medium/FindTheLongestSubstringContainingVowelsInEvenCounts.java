@@ -29,6 +29,8 @@ import java.util.Map;
  *
  * 1 <= s.length <= 5 x 10^5
  * s contains only lowercase English letters.
+ *
+ * 很有意思
  */
 public class FindTheLongestSubstringContainingVowelsInEvenCounts {
     public int findTheLongestSubstring(String s) {

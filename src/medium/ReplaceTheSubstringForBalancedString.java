@@ -43,6 +43,7 @@ import java.util.Map;
  * s contains only 'Q', 'W', 'E' and 'R'.
  *
  * 用map会影响效率
+ * 滑动窗口：核心是i往右走时，j不需要重置
  */
 public class ReplaceTheSubstringForBalancedString {
     public int balancedString(String s) {
@@ -55,12 +56,15 @@ public class ReplaceTheSubstringForBalancedString {
         int[] count = new int[]{-target, -target, -target, -target};
         for (char c : s.toCharArray()) count[map.get(c)]++;
         int ret = s.length();
-        for (int i = 0, j = 0; i < s.length(); i++) {
-            while (j < s.length() && (count[0] > 0 || count[1] > 0 || count[2] > 0 || count[3] > 0))
+        for (int i = 0, j = 0; i < s.length(); ) {
+            while (j < s.length() && (count[0] > 0 || count[1] > 0 || count[2] > 0 || count[3] > 0)) {
                 count[map.get(s.charAt(j++))]--;
-            if (count[0] <= 0 && count[1] <= 0 && count[2] <= 0 && count[3] <= 0) ret = Math.min(ret, j - i);
+            }
+            if (count[0] <= 0 && count[1] <= 0 && count[2] <= 0 && count[3] <= 0) {
+                ret = Math.min(ret, j - i);
+            }
             if (ret == 0) break;
-            count[map.get(s.charAt(i))]++;
+            count[map.get(s.charAt(i++))]++;
         }
         return ret;
     }

@@ -33,7 +33,4 @@ public class PartitionList {
         l1.next = suffix.next;
         return prefix.next;
     }
-
-    public static void main(String[] args) {
-    }
 }

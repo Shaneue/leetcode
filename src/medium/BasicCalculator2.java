@@ -24,6 +24,8 @@ import java.util.Deque;
  *
  * You may assume that the given expression is always valid.
  * Do not use the eval built-in library function.
+ *
+ * sign初始化必须为+
  */
 public class BasicCalculator2 {
     public int calculate(String s) {

@@ -34,7 +34,7 @@ import java.util.TreeMap;
  * 1 <= nums[i] <= 10^9
  * 1 <= k <= nums.length
  * <p>
- * 从最小值开始
+ * 从最小值开始，减去的时候要从当前consecutive numbers的最后一个数减起
  */
 public class DivideArrayInSetsOfKConsecutiveNumbers {
     public boolean isPossibleDivide(int[] A, int k) {

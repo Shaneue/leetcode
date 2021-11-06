@@ -11,6 +11,8 @@ import java.util.LinkedList;
  * Note: The length of temperatures will be in the range [1, 30000]. Each temperature will be an integer in the range [30, 100].
  *
  * 用栈来处理，下标入栈
+ *
+ * 单调栈
  */
 public class DailyTemperatures {
     public int[] dailyTemperatures(int[] T) {

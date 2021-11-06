@@ -21,7 +21,7 @@ public class SingleNumber3 {
         for (int n : nums) {
             xor ^= n;
         }
-        xor = Integer.highestOneBit(xor);
+        xor = -xor & xor;
         for (int n : nums) {
             if ((xor & n) == 0) {
                 ret[0] ^= n;

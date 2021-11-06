@@ -39,6 +39,23 @@ package medium;
  */
 public class SortColors {
     public void sortColors(int[] nums) {
+        int p0 = 0, p1 = 0, p2 = nums.length - 1;
+        while (p0 < p2) {
+            if (nums[p0] == 0) {
+                nums[p0] = nums[p1];
+                nums[p1] = 0;
+                p1++;
+            } else if (nums[p0] == 2) {
+                nums[p0] = nums[p2];
+                nums[p2] = 2;
+                p2--;
+                p0--;
+            }
+            p0++;
+        }
+    }
+
+    public void sortColors2(int[] nums) {
         int zero = 0, one = 0, two = 0;
         for (int i : nums) {
             if (i == 1) one++;
